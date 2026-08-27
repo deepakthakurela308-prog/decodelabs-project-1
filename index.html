@@ -1,357 +1,363 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deepak Chaudhary | Frontend Developer Portfolio</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* CSS Variables for Colors */
+        :root {
+            --primary: #0052FF;
+            --dark-bg: #000E29;
+            --light-bg: #F4F7FE;
+            --text-dark: #1E293B;
+            --text-muted: #64748B;
+            --white: #FFFFFF;
+        }
 
-    <meta name="description"
-          content="Professional responsive portfolio website built with HTML, CSS and JavaScript.">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
 
-    <title>Deepak | Frontend Developer</title>
+        body {
+            background-color: var(--white);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
 
-    <link rel="stylesheet" href="style.css">
+        /* Navbar */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid #E2E8F0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark-bg);
+        }
+        .logo span { color: var(--primary); }
+
+        .menu-icon {
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: var(--dark-bg);
+            color: var(--white);
+            padding: 4rem 2rem;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .hero-text h3 {
+            color: var(--primary);
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-text h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-text p {
+            color: #94A3B8;
+            margin-bottom: 2rem;
+            max-width: 500px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .btn-blue {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        .btn-outline {
+            border: 1px solid #334155;
+            color: var(--white);
+        }
+
+        /* Developer Box Code Visual */
+        .dev-box {
+            background-color: #03163a;
+            border: 1px solid #1E293B;
+            border-radius: 8px;
+            padding: 1.5rem;
+            font-family: monospace;
+            color: #94A3B8;
+        }
+
+        .dev-box .tag { color: #F43F5E; }
+        .dev-box ul {
+            list-style: none;
+            padding-left: 1.5rem;
+            margin: 0.5rem 0;
+        }
+        .dev-box li {
+            color: var(--white);
+            margin-bottom: 0.5rem;
+            position: relative;
+        }
+        .dev-box li::before {
+            content: "•";
+            color: var(--primary);
+            position: absolute;
+            left: -1rem;
+        }
+
+        /* Sections General */
+        section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 0.8rem;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-heading {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .about-text p {
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .about-details {
+            background-color: var(--light-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 0.95rem;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .skill-card {
+            border: 1px solid #E2E8F0;
+            border-radius: 6px;
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Portfolio Projects */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .project-card {
+            border: 1px solid #E2E8F0;
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: var(--white);
+        }
+
+        .project-img {
+            background: linear-gradient(135deg, #60A5FA, #2563EB);
+            height: 180px;
+        }
+
+        .project-info {
+            padding: 1.5rem;
+        }
+
+        .project-info h4 {
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .project-info p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* Contact & Forms */
+        .contact-box {
+            background-color: var(--light-bg);
+            padding: 2rem;
+            border-radius: 8px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-links a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #CBD5E1;
+            border-radius: 6px;
+            font-size: 0.9rem;
+        }
+
+        .btn-submit {
+            background-color: var(--primary);
+            color: var(--white);
+            border: none;
+            width: 100%;
+            padding: 0.75rem;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        footer {
+            background-color: var(--dark-bg);
+            color: #94A3B8;
+            text-align: center;
+            padding: 1.5rem;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive Media Queries (For Tablets and Desktops) */
+        @media (min-width: 768px) {
+            .hero { grid-template-columns: 1.2fr 0.8fr; align-items: center; padding: 6rem 4rem; }
+            .hero-text h1 { font-size: 3.5rem; }
+            .about-grid { grid-template-columns: 1fr 1fr; }
+            .skills-grid { grid-template-columns: repeat(4, 1fr); }
+            .portfolio-grid { grid-template-columns: repeat(3, 1fr); }
+            .form-grid { grid-template-columns: 1fr 1fr; }
+        }
+    </style>
 </head>
-
 <body>
 
-    <!-- Header -->
-    <header class="header">
-        <nav class="navbar container">
-
-            <a href="#home" class="logo">Deepak<span>.</span></a>
-
-            <button class="menu-btn" id="menuBtn"
-                    aria-label="Open navigation menu">
-                ☰
-            </button>
-
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-
-        </nav>
+    <!-- Header Navigation -->
+    <header>
+        <div class="logo">Deepak<span>.</span></div>
+        <div class="menu-icon">☰</div>
     </header>
 
-
-    <!-- Main Content -->
-    <main>
-
-        <!-- Hero Section -->
-        <section id="home" class="hero">
-            <div class="container hero-content">
-
-                <div class="hero-text">
-                    <p class="subtitle">HELLO, I'M</p>
-
-                    <h1>Deepak</h1>
-
-                    <h2>Frontend Developer</h2>
-
-                    <p>
-                        I create clean, responsive and user-friendly
-                        web experiences using modern frontend technologies.
-                    </p>
-
-                    <div class="hero-buttons">
-                        <a href="#projects" class="btn primary-btn">
-                            View Projects
-                        </a>
-
-                        <a href="#contact" class="btn secondary-btn">
-                            Contact Me
-                        </a>
-                    </div>
-                </div>
-
-                <div class="hero-card">
-                    <div class="code-box">
-                        <span>&lt;developer&gt;</span>
-                        <p>Creative</p>
-                        <p>Responsive</p>
-                        <p>Problem Solver</p>
-                        <span>&lt;/developer&gt;</span>
-                    </div>
-                </div>
-
+    <!-- Hero Section -->
+    <main class="hero">
+        <div class="hero-text">
+            <h3>Hello, I'm</h3>
+            <h1>Deepak Chaudhary<br><span style="color: var(--primary);">Frontend Developer</span></h1>
+            <p>I create clean, responsive and user-friendly web experiences using modern frontend technologies.</p>
+            <div class="hero-buttons">
+                <a href="#" class="btn btn-blue">View Projects →</a>
+                <a href="#" class="btn btn-outline">Contact Me</a>
             </div>
-        </section>
-
-
-        <!-- About Section -->
-        <section id="about" class="section">
-            <div class="container">
-
-                <div class="section-heading">
-                    <p>ABOUT ME</p>
-                    <h2>Building for the Web</h2>
-                </div>
-
-                <div class="about-content">
-
-                    <div class="about-text">
-                        <h3>Passionate About Web Development</h3>
-
-                        <p>
-                            I am a BCA student interested in frontend development
-                            and modern web technologies. I enjoy creating
-                            responsive interfaces and learning how real-world
-                            websites are designed and developed.
-                        </p>
-
-                        <p>
-                            This project demonstrates my understanding of
-                            semantic HTML, responsive CSS, Flexbox, Grid and
-                            JavaScript fundamentals.
-                        </p>
-                    </div>
-
-                    <div class="about-info">
-                        <div class="info-card">
-                            <strong>BCA</strong>
-                            <span>Student</span>
-                        </div>
-
-                        <div class="info-card">
-                            <strong>Frontend</strong>
-                            <span>Development</span>
-                        </div>
-
-                        <div class="info-card">
-                            <strong>HTML</strong>
-                            <span>CSS & JavaScript</span>
-                        </div>
-
-                        <div class="info-card">
-                            <strong>2026</strong>
-                            <span>Project 01</span>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-
-        <!-- Skills Section -->
-        <section id="skills" class="section skills-section">
-            <div class="container">
-
-                <div class="section-heading">
-                    <p>MY SKILLS</p>
-                    <h2>Technologies I Work With</h2>
-                </div>
-
-                <div class="skills-grid">
-
-                    <article class="skill-card">
-                        <h3>HTML5</h3>
-                        <p>Semantic and accessible website structure.</p>
-                    </article>
-
-                    <article class="skill-card">
-                        <h3>CSS3</h3>
-                        <p>Responsive layouts using Flexbox and Grid.</p>
-                    </article>
-
-                    <article class="skill-card">
-                        <h3>JavaScript</h3>
-                        <p>Interactive and dynamic web functionality.</p>
-                    </article>
-
-                    <article class="skill-card">
-                        <h3>Python</h3>
-                        <p>Programming fundamentals and problem solving.</p>
-                    </article>
-
-                    <article class="skill-card">
-                        <h3>C</h3>
-                        <p>Programming fundamentals and logical thinking.</p>
-                    </article>
-
-                    <article class="skill-card">
-                        <h3>Java</h3>
-                        <p>Object-oriented programming fundamentals.</p>
-                    </article>
-
-                </div>
-            </div>
-        </section>
-
-
-        <!-- Projects Section -->
-        <section id="projects" class="section">
-            <div class="container">
-
-                <div class="section-heading">
-                    <p>PORTFOLIO</p>
-                    <h2>Featured Projects</h2>
-                </div>
-
-                <div class="projects-grid">
-
-                    <article class="project-card">
-                        <div class="project-image">
-                            <span>PROJECT 01</span>
-                        </div>
-
-                        <div class="project-content">
-                            <h3>Responsive Portfolio</h3>
-
-                            <p>
-                                A professional mobile-first portfolio
-                                website created using HTML, CSS and JavaScript.
-                            </p>
-
-                            <a href="#" class="project-link">
-                                View Project →
-                            </a>
-                        </div>
-                    </article>
-
-
-                    <article class="project-card">
-                        <div class="project-image">
-                            <span>PROJECT 02</span>
-                        </div>
-
-                        <div class="project-content">
-                            <h3>Student Management System</h3>
-
-                            <p>
-                                A student-focused application designed to
-                                manage basic student information efficiently.
-                            </p>
-
-                            <a href="#" class="project-link">
-                                View Project →
-                            </a>
-                        </div>
-                    </article>
-
-
-                    <article class="project-card">
-                        <div class="project-image">
-                            <span>PROJECT 03</span>
-                        </div>
-
-                        <div class="project-content">
-                            <h3>Modern Landing Page</h3>
-
-                            <p>
-                                A clean responsive landing page demonstrating
-                                modern layout and UI principles.
-                            </p>
-
-                            <a href="#" class="project-link">
-                                View Project →
-                            </a>
-                        </div>
-                    </article>
-
-                </div>
-            </div>
-        </section>
-
-
-        <!-- Education Section -->
-        <section id="education" class="section education-section">
-            <div class="container">
-
-                <div class="section-heading">
-                    <p>EDUCATION</p>
-                    <h2>My Academic Journey</h2>
-                </div>
-
-                <article class="education-card">
-                    <h3>Bachelor of Computer Applications (BCA)</h3>
-                    <p>Rajiv Academy for Technology and Management</p>
-                    <span>2025 – Present</span>
-                </article>
-
-            </div>
-        </section>
-
-
-        <!-- Contact Section -->
-        <section id="contact" class="section contact-section">
-            <div class="container">
-
-                <div class="section-heading">
-                    <p>CONTACT</p>
-                    <h2>Let's Build Something</h2>
-                </div>
-
-                <div class="contact-content">
-
-                    <div class="contact-text">
-                        <h3>Have a project in mind?</h3>
-
-                        <p>
-                            Feel free to connect with me for web development,
-                            projects and collaboration opportunities.
-                        </p>
-
-                        <div class="social-links">
-                            <a href="#" target="_blank">GitHub</a>
-                            <a href="#" target="_blank">LinkedIn</a>
-                        </div>
-                    </div>
-
-
-                    <form class="contact-form" id="contactForm">
-
-                        <label for="name">Name</label>
-                        <input type="text"
-                               id="name"
-                               name="name"
-                               placeholder="Your Name"
-                               required>
-
-                        <label for="email">Email</label>
-                        <input type="email"
-                               id="email"
-                               name="email"
-                               placeholder="Your Email"
-                               required>
-
-                        <label for="message">Message</label>
-                        <textarea id="message"
-                                  name="message"
-                                  rows="5"
-                                  placeholder="Your Message"
-                                  required></textarea>
-
-                        <button type="submit" class="btn primary-btn">
-                            Send Message
-                        </button>
-
-                    </form>
-
-                </div>
-            </div>
-        </section>
-
+        </div>
+        <div class="dev-box">
+            <span class="tag">&lt;developer&gt;</span>
+            <ul>
+                <li>Creative</li>
+                <li>Responsive</li>
+                <li>Problem Solver</li>
+            </ul>
+            <span class="tag">&lt;/developer&gt;</span>
+        </div>
     </main>
 
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-
-            <p>
-                © 2026 Deepak. Built with HTML, CSS & JavaScript.
-            </p>
-
+    <!-- About Me Section -->
+    <section id="about">
+        <div class="section-title">About Me</div>
+        <div class="section-heading">Building for the Web</div>
+        <div class="about-grid">
+            <div class="about-text">
+                <p>I am Deepak Chaudhary, a BCA student passionate about frontend development and modern web technologies. I enjoy creating responsive interfaces and turning ideas into real web experiences.</p>
+            </div>
+            <div class="about-details">
+                <div class="detail-item">🎓 BCA Student</div>
+                <div class="detail-item">💻 Frontend Development</div>
+                <div class="detail-item">&lt;/&gt; HTML, CSS, JavaScript</div>
+                <div class="detail-item">📅 2026 - Project 01</div>
+            </div>
         </div>
-    </footer>
+    </section>
 
-
-    <script src="script.js"></script>
-
-</body>
-                          </html>
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="section-title">My Skills</div>
+        <div class="section-heading">Technologies I Work With</div>
+        <div class="skills-grid">
+            <div class="skill-card">🧡 HTML5</div>
+            <div class="skill-card">💙 CSS3</div>
+                
