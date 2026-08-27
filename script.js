@@ -1,4 +1,14 @@
-function sendMessage(event){
-  event.preventDefault();
-  alert("Thank you! Your message form is working. Connect it to a backend or Formspree later to receive real messages.");
-}
+console.log("Decode Lab Portfolio loaded successfully!");
+
+document.querySelectorAll("a[href^='#']").forEach(link => {
+  link.addEventListener("click", function (e) {
+    const target = document.querySelector(this.getAttribute("href"));
+
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({
+        behavior: "smooth"
+      });
+    }
+  });
+});
