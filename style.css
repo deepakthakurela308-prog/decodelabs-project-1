@@ -18,3 +18,4 @@ body{font-family:Arial,Helvetica,sans-serif;color:#12203d;background:#fff;line-h
 .bottom{display:grid;grid-template-columns:1fr 1fr;gap:28px;background:#f3f7ff}.contact,.education{min-width:0}.socials{display:flex;gap:20px;margin:14px 0}.socials a{color:#1765ff;font-weight:700}
 form{display:grid;grid-template-columns:1fr 1fr;gap:10px}input,textarea{border:1px solid #d7dce7;border-radius:8px;padding:12px;font:inherit}textarea{grid-column:1/-1;min-height:90px;resize:vertical}form button{grid-column:1/-1;border:0;background:#1765ff;color:#fff;padding:12px;border-radius:8px;font-weight:800}
 footer{ba
+                                                                                                                        
